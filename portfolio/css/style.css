@@ -1,0 +1,456 @@
+@charset "utf-8";
+
+/* 💡 画面全体を固定してスクロールさせないための設定を追加 */
+body {
+  margin: 0;
+  padding: 0;
+  /* height: 100vh; */
+
+  /* overflow: hidden; スクロールバーを消す */
+}
+
+.top-only{
+  height: 100vh;
+}
+
+/* 💡 原因だった「引き離し現象」を解決し、パーツを綺麗に並べる設定 */
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 画面の上下の真ん中に集める */
+  align-items: center;     /* 画面の左右の真ん中に集める */
+  gap: 40px;               /* ★パーツ同士（タイトル、画像、メニュー）の隙間の広さです */
+}
+
+.main-title {
+  font-family: "Asset", serif;
+  text-align: center;
+  margin: 0; /* 余計な空白をリセット */
+}
+
+.main-photo {
+  display: block;
+  margin: 0; /* 原因だった auto をリセット */
+  height: 55vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.menu {
+  font-family: "Asset", serif;
+  width: 100%;
+  margin: 0; /* 原因だった 60px auto をリセットして不自然な空白を消す ★重要 */
+  text-align: center;
+  font-size: 16px;
+}
+
+.menu ul {
+  list-style: none;         /* 点を消す */
+  padding: 0;
+  margin: 0;
+  display: flex;            /* 横並びにする */
+  justify-content: center;  /* 画面の真ん中に寄せる */
+  align-items: center;      /* 縦の位置を真ん中で揃える */
+  flex-wrap: wrap;          /* スマホ画面で溢れたら綺麗に折り返す */
+}
+
+/* 3. リンク文字（About, Worksなど）のデザイン */
+.menu ul a {
+  font-size: 20px;          /* 文字を少し大きめにして存在感を出す */
+  letter-spacing: 0.1em;    /* 文字の間隔を少し空けてオシャレに */
+  text-decoration: none;    /* 下線を消す */
+  color: #333333;           /* 文字の色 */
+  font-weight: 500;         /* 文字を少し太めにする */
+  padding: 10px 15px;       /* 押しやすいように文字の周りに余白を作る */
+  transition: all 0.3s;     /* マウスを乗せた時の動きをなめらかに */
+}
+
+/* 4. マウスを乗せた時（hover）の動き */
+.menu ul a:hover {
+  color: #ff6b81;           /* マウスを乗せた時に色を変える（お好きな色に） */
+  transform: translateY(-2px); /* ほんの少し上にふわっと浮き上がらせる */
+}
+
+/* 5. 区切り線（/）のデザイン */
+.menu .deco {
+  color: #ccc;              /* スラッシュを薄いグレーにして主役を立たせる */
+  font-size: 18px;          /* リンク文字より少し小さめにする */
+  user-select: none;        /* ユーザーが文字選択できないようにする */
+}
+
+.deco {
+  margin: 0 10px;
+}
+
+h2{
+     font-family: "Asset", serif;
+     text-align: center;
+     padding-bottom: 16px;
+}
+
+.about-flex-container {
+  display: flex;
+  justify-content:center; 
+  align-items: center; 
+  gap: 40px; 
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.me-item {
+  margin-bottom: 20px;
+}
+
+
+.me dt {
+  font-weight: bold;
+  color: #333;
+}
+
+
+.me-photo {
+  max-width: 300px; 
+  height: auto;
+}
+
+.career {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 16px 0;    
+  width: 100%;    
+  max-width: 600px;  
+  margin: 0 auto;
+}
+
+.calender {
+  flex-basis: 25%; 
+  margin: 0;       
+  font-weight: bold;
+}
+
+.career-content {
+  flex-basis: 75%; 
+  margin: 0;       
+}
+
+
+.skill {
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto;   
+}
+
+.skill-title {
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px 60px;
+}
+
+
+.skill-list > li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;   
+}
+
+
+.skill-name {
+  font-size: 1.1em;        
+  font-weight: bold;
+}
+
+
+.skill-item_level {
+  flex-basis: 70%;       
+}
+
+
+.skill-rate {
+  margin: 0 ;       
+  color: #ffb700;         
+}
+
+
+.skill-item_level p:last-child {
+  margin: 0;
+  font-size: 0.9em;        
+  color: #555;
+}
+
+.my-chart-container {
+    width: 500px;     
+    margin: 0 auto;  
+  }
+
+
+
+
+
+/* work 仮 */
+
+/* 画像エリアをパソコンのディスプレイ風にする */
+.works-img {
+  width: 100%;
+  aspect-ratio: 16 / 10; /* 少し縦を広げてPC画面っぽく */
+  background: #222;       /* パソコンの黒いベゼル（枠）の色 */
+  padding: 12px 12px 0 12px; /* 画面上部と左右の黒い枠の厚み */
+  box-sizing: border-box;
+  position: relative;
+  border-bottom: 8px solid #555; /* パソコンの「ディスプレイ下部のヒンジ（結合部）」を表現 */
+  margin-bottom: 32px;
+}
+
+
+/* パソコンの画面に映るスクリーンショット画像 */
+.works-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* 画像を画面いっぱいに綺麗に収める */
+  object-position: top; /* 縦長スクショの場合、サイトの「一番上」が見えるようにする */
+  border-radius: 2px 2px 0 0; /* 画面内側のほんの少しの角丸 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* パソコンの「スタンド（土台）」を擬似要素で表現 */
+.works-img::after {
+  content: "";
+  position: absolute;
+  bottom: -14px; /* ヒンジの下に配置 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;     /* スタンドの横幅 */
+  height: 6px;    /* スタンドの厚み */
+  background: #999; /* シルバーのスタンド */
+  border-radius: 0 0 4px 4px;
+}
+
+.works {
+  width: 100%;
+  max-width: 1000px; 
+  margin: 0 auto;   
+  padding: 60px 24px;
+  box-sizing: border-box;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 64px 80px; 
+}
+
+.banner-img {
+  width: 100%;
+  margin-bottom: 32px; /* 文字との間に少し隙間をあける */
+
+}
+
+/* バナーはPC枠をつけず、薄い影をつけて角を少し丸める */
+.banner-img img {
+  width: 100%;
+  height: auto; /* 画像本来の比率を保つ（潰れない） */
+  display: block;
+  border-radius: 6px; /* 角をほんのり丸く */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); /* 綺麗な薄い影 */
+  margin-bottom: 48px;
+  
+}
+
+
+.works-item-title {
+  font-size: 1.1rem;
+  margin: 12px 0 8px 0;
+}
+
+.works-tech {
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.works-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.works-img, .banner-img img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 1〜3個目のパソコン用ホバー：
+   画像リンクにマウスが乗ったら、中のPC枠（.works-img）を丸ごと上に浮かせます */
+.works-card-link:hover .works-img {
+  transform: translateY(-8px);
+}
+
+/* 4個目のバナー用ホバー：
+   画像リンクにマウスが乗ったら、中のバナー画像を上に浮かせます */
+.works-card-link:hover .banner-img img {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* 浮いたときに影を少し濃くする */
+}
+
+
+.works-link {
+  display: block;
+  width: max-content;
+  margin-left: auto;
+  margin-top: 16px;
+  padding: 10px 24px;       /* ボタンの内側の余白（上下 左右） */
+  background-color: #a9b3a3;   /* ボタンの背景色（お好みの色に変えられます） */
+  color: #fff;              /* 文字の色（白） */
+  text-decoration: none;    /* 下線を消す */
+  font-size: 0.85rem;       /* 文字の大きさ */
+  font-weight: bold;        /* 文字を太字に */
+  border-radius: 4px;       /* ボタンの角をほんのり丸く */
+  letter-spacing: 0.05em;   /* 文字の間隔を少し広げて洗練された印象に */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* 変化をなめらかに */
+}
+
+/* ボタンにマウスを乗せたときの動き（ホバー効果） */
+.works-link:hover {
+  background-color: #8e9988;   /* マウスが乗ったときに背景色を少し明るく */
+}
+
+/* 1. リンク自体の設定 */
+.back-link-home {
+  display: block;          /* 横幅や余白を設定できるようにする */
+  width: 160px;            /* ボタンの横幅 */
+  margin: 50px auto;       /* 上下に大きな余白、左右を中央揃えにする ★これが重要 */
+  padding: 12px 0;         /* ボタンの内側の上下余白 */
+  
+  text-align: center;      /* 文字を中央に寄せる */
+  text-decoration: none;   /* 下線を消す */
+  font-weight: bold;       /* 文字を太字にする */
+  
+  /*見た目のデザイン（色は自由に変えてください） */
+  color: #333333;          /* 文字の色 */
+  background-color: #fff;  /* ボタンの背景色（白） */
+  border: 1px solid #333;  /* ボタンの枠線 */
+  border-radius: 4px;      /* 角を少し丸くする */
+  transition: all 0.3s;    /* マウスを乗せた時の動きを滑らかに */
+}
+
+/* 2. マウスを乗せた時の動き */
+.back-link-home:hover {
+  background-color: #333333; /* 背景を黒にする */
+  color: #ffffff;            /* 文字を白にする */
+}
+
+/* ========================================================
+   詳細ページ（work-detail）のスタイル
+======================================================== */
+.work-detail {
+  width: 100%;
+  background-color: #fff;
+  padding: 60px 24px;
+  box-sizing: border-box;
+}
+
+.detail-container {
+  max-width: 800px; /* ★読みやすいように少し細めの幅に絞ります */
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+.back-link:hover {
+  color: #1a1a1a;
+}
+
+.detail-title {
+  font-size: 1.8rem;
+  margin: 0 0 40px 0;
+  color: #1a1a1a;
+}
+
+.detail-hero {
+  margin-bottom: 40px;
+}
+
+/* 基本情報のテーブル */
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+.detail-table th, .detail-table td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 0.95rem;
+}
+.detail-table th {
+  width: 25%;
+  color: #555;
+  font-weight: bold;
+}
+
+/* 解説のセクション */
+.detail-section {
+  margin-bottom: 40px;
+}
+.detail-section h2 {
+  font-size: 1.3rem;
+  border-left: 4px solid #a9b3a3; /* ★ボタンとお揃いのセージグリーンをアクセントに！ */
+  padding-left: 12px;
+  margin: 0 0 16px 0;
+  color: #1a1a1a;
+}
+.detail-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 48px;
+}
+
+/* ボタンの中央寄せ */
+.detail-action {
+  text-align: center;
+  margin-top: 60px;
+}
+/* 詳細ページのボタンだけは、右端ではなく中央にどっしり配置します */
+.detail-action .works-link {
+  margin: 0 auto;
+}
+
+
+/* バナー全体の囲み枠（位置の調整） */
+.banner-hero {
+  width: 100%;
+  margin: 40px auto;     /* 上下に余白をあけ、左右中央に配置 */
+  padding: 0 20px;       /* スマホ画面用の左右のスキマ */
+  box-sizing: border-box;
+}
+
+/* バナー画像を囲む枠（サイズや装飾の調整） */
+.banner-img {
+  max-width: 600px;      /* バナーを表示したい最大の横幅（お好みで変更OK） */
+  margin: 0 auto;        /* 枠のなかで中央に寄せる */
+}
+
+/* バナー画像そのものの設定 */
+.banner-img img {
+  width: 100%;           /* 枠の横幅にぴったり合わせる */
+  height: auto;          /* 縦横比を崩さない */
+  display: block;        /* 下に謎の隙間ができるのを防ぐ */
+  
+  /* 💡 春らしいバナーに合うおすすめの装飾（不要なら消してOK） */
+  border-radius: 6px;    /* 角をほんのり丸くする */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* 柔らかい影をつける */
+}
+

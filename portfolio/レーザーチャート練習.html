@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chart.js テスト</title>
+    <!-- Chart.jsの読み込み -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      /* 画面をわざと縦長にするための設定 */
+      .scroll-buffer {
+        height: 1200px; /* パソコンでも確実にスクロールが必要な高さ */
+        background: #f0f0f0;
+        padding: 40px;
+        font-family: sans-serif;
+      }
+      .chart-box {
+        width: 400px;
+        margin: 100px auto 500px auto; /* 上下に大きな余白 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. ページを開いた時はここだけが見えます -->
+    <div class="scroll-buffer">
+      <h1>【テストページ】</h1>
+      <p>いま、グラフは画面のはるか下（見えない場所）にあります。</p>
+      <p
+        style="
+          font-size: 24px;
+          color: red;
+          font-weight: bold;
+          margin-top: 200px;
+        "
+      >
+        ↓↓↓ 思いっきり下にスクロールしてください！ ↓↓↓
+      </p>
+    </div>
+
+    <!-- 2. ここにグラフが現れます -->
+    <div class="chart-box">
+      <canvas id="myRadarChart"></canvas>
+    </div>
+
+    <script>
+      // グラフを作る中身
+      function drawRadar() {
+        const ctx = document.getElementById("myRadarChart");
+        new Chart(ctx, {
+          type: "radar",
+          data: {
+            labels: [
+              "HTML/CSS",
+              "JavaScript",
+              "PHP",
+              "WordPress",
+              "GIMP/Inkscape",
+              "Figma",
+            ],
+            datasets: [
+              {
+                data: [3, 3, 2, 3, 3, 2], // データをしっかり入れました
+                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+              },
+            ],
+          },
+          options: {
+            animation: {
+              duration: 1500,
+              easing: "easeOutQuart",
+            },
+            plugins: {
+              legend: { display: false },
+            },
+            scales: {
+              r: {
+                min: 0,
+                max: 5,
+                ticks: { stepSize: 1 },
+              },
+            },
+          },
+        });
+      }
+
+      // 画面に入ったら発火させる監視カメラの設定
+      const spy = new IntersectionObserver(
+        (targets) => {
+          targets.forEach((target) => {
+            if (target.isIntersecting) {
+              drawRadar(); // 画面に入ったら描画！
+              spy.unobserve(target.target); // 1回動いたら監視終了
+            }
+          });
+        },
+        { rootMargin: "0px 0px -5% 0px" },
+      ); // 画面の下側にちょっとでもかすめたらスタート
+
+      // 監視スタート
+      spy.observe(document.querySelector(".chart-box"));
+    </script>
+  </body>
+</html>
