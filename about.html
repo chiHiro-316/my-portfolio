@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asset&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>CHIHIRO CHIDA | Portfolio</title>
+  </head>
+
+  <main class="adout">
+    <h2>About Me</h2>
+
+    <div class="about-flex-container">
+      <dl class="me">
+        <div class="me-item">
+          <dt>名前</dt>
+          <dd>千田　千尋（ちだ　ちひろ）</dd>
+        </div>
+
+        <div class="me-item">
+          <dt>生年月日・年齢</dt>
+          <dd>1994/03/26 (32歳)</dd>
+        </div>
+
+        <div class="me-item">
+          <dt>出身地・居住地</dt>
+          <dd>秋田県秋田市</dd>
+        </div>
+
+        <div class="me-item">
+          <dt>血液型</dt>
+          <dd>A型</dd>
+        </div>
+      </dl>
+
+      <img src="img/me(kari).png" alt="" class="me-photo" />
+    </div>
+
+    <br /><br /><br />
+
+    <h2>Career</h2>
+
+    <section class="career">
+      <p class="calender">2012年</p>
+      <p class="career-content">米の卸売会社へ入社。（事務職）</p>
+
+      <p class="calender">2021年</p>
+      <p class="career-content">
+        結婚を機に退職。 <br />派遣社員として電力会社へ就業。（事務職）
+      </p>
+
+      <p class="calender">2022年</p>
+      <p class="career-content">産休育休を取得する。（1年半）</p>
+
+      <p class="calender">2024年</p>
+      <p class="career-content">パート社員として不動産会社に入社。（事務職）</p>
+
+      <p class="calender">2025年</p>
+      <p class="career-content">
+        会社都合により退職。
+        <br />職業訓練 トラパンツコンテンツスクール入校（Webデザイン科）
+      </p>
+    </section>
+
+    <br /><br /><br />
+
+    
+    <section id="skill">
+      <h2>Skill</h2>
+      <p class="skill-title">職業訓練校にて取得技術中</p>
+
+      <div class="my-chart-container">
+        <canvas id="myRadarChart"></canvas>
+      </div>
+
+      <ul class="skill-list">
+        <li>
+          <span class="skill-name">HTML/CSS</span>
+          <div class="skill-item_level">
+            <p class="skill-rate">★★★☆☆</p>
+            <p class="skill-text">
+              仕様書やデザインカンプに沿った、レスポンシブサイトのコーディングが可能です。
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-item_level">
+            <p class="skill-rate">★★★☆☆</p>
+            <p class="skill-text">
+              ハンバーガーメニューやスライダーなど、Webサイトに必要な動的ギミックを実装できます。
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="skill-name">PHP</span>
+          <div class="skill-item_level">
+            <p class="skill-rate">★★☆☆☆</p>
+            <p class="skill-text">
+              文法の基礎を理解しており、WordPressのコードを調べながら読み解くことができます。<br />現在も学習継続中！
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="skill-name">WordPress</span>
+          <div class="skill-item_level">
+            <p class="skill-rate">★★★☆☆</p>
+            <p class="skill-text">
+              既存テーマやプラグインの選定・設定、簡単なカスタマイズとサイト立ち上げが可能です。
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="skill-name">GIMP</span>
+          <div class="skill-item_level">
+            <p class="skill-rate">★★★☆☆</p>
+            <p class="skill-text">
+              Webサイトに配置する写真のサイズ変更、色調補正、切り抜きなどの加工が可能です。
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="skill-name">Inkscape</span>
+          <div class="skill-item_level">
+            <p class="skill-rate">★★★☆☆</p>
+            <p class="skill-text">
+              Web用のシンプルなアイコン制作や、SVG素材の編集・書き出しが可能です。
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="skill-name">Figma</span>
+          <div class="skill-item_level">
+            <p class="skill-rate">★★☆☆☆</p>
+            <p class="skill-text">
+              グループ制作等にてワイヤーフレーム作成時に使用。<br />画面遷移や基本操作が可能です。
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <br /><br /><br /><br /><br />
+  </main>
+</html>
+
+<script>
+  function drawRadar() {
+    const ctx = document.getElementById("myRadarChart");
+    new Chart(ctx, {
+      type: "radar",
+      data: {
+        labels: [
+          "HTML/CSS",
+          "JavaScript",
+          "PHP",
+          "WordPress",
+          "GIMP/Inkscape",
+          "Figma",
+        ],
+        datasets: [
+          {
+            data: [3, 3, 2, 3, 3, 2],
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderColor: "rgba(54, 162, 235, 1)",
+          },
+        ],
+      },
+      options: {
+        animation: { duration: 1500, easing: "easeOutQuart" },
+        plugins: { legend: { display: false } },
+        scales: { r: { min: 0, max: 5, ticks: { stepSize: 1 } } },
+      },
+    });
+  }
+
+  // スクロールを検知してニョキニョキさせる設定
+  const chartWatcher = new IntersectionObserver(
+    (targets) => {
+      targets.forEach((target) => {
+        if (target.isIntersecting) {
+          drawRadar();
+          chartWatcher.unobserve(target.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -5% 0px" },
+  );
+
+  chartWatcher.observe(document.querySelector(".my-chart-container"));
+</script>
