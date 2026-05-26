@@ -612,5 +612,55 @@ h2{
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
+/* contact */
+
+/* フォーム全体の枠 */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 各入力項目の上下の隙間 */
+.form-item {
+  margin-bottom: 20px;
+}
+
+/* ラベル（お名前 などの文字） */
+.form-item label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 入力欄（文字を入れるボックス） */
+.form-item input,
+.form-item textarea {
+  width: 100%;          /* コツ1：幅は100%にしておく */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 送信ボタン */
+.submit-btn {
+  display: block;
+  width: 200px;         /* ボタンはお好みの固定幅でOK */
+  margin: 30px auto 0;  /* 中央寄せ */
+  padding: 12px;
+  background-color: #091d36; /* 前のサイトの渋い紺色を参考に */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* スマホの時はボタンも横幅いっぱいにしたければメディアクエリへ */
+@media screen and (max-width: 767px) {
+  .submit-btn {
+    width: 100%;
+  }
+}
 
 
