@@ -18,6 +18,38 @@ body {
 
 }
 
+/* 全体スマホ設定 */
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px; 
+  }
+  h1 {
+    font-size: 20px; 
+  }
+  p {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 100%;       
+    padding: 0 20px;  
+    box-sizing: border-box; 
+  }
+ 
+  img {
+    max-width: 100%; 
+    height: auto;  
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+}
+
+
+
+
+
 .top-only{
   height: 100vh;
 }
@@ -96,28 +128,13 @@ main {
 
 
 @media (max-width: 767px) {
-  html {
-    font-size: 14px; 
-  }
-  h1 {
-    font-size: 20px; 
-  }
-  p {
-    font-size: 14px;
-  }
-
-  .container {
-    width: 100%;       
-    padding: 0 20px;  
-    box-sizing: border-box; 
-  }
- 
-  img {
-    max-width: 100%; 
-    height: auto;     
-  }
-
-
+  .main-photo {
+  display: block;
+  margin: 0; 
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
 
 }
 
@@ -234,6 +251,88 @@ h2{
     width: 500px;     
     margin: 0 auto;  
   }
+
+/* about スマホ設定 */
+
+@media screen and (max-width: 767px) {
+
+  /* 1. メイン全体の左右に余白を作りはみ出しを防ぐ */
+  .adout {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* 万が一のはみ出しもカット */
+  }
+
+  /* 2. プロフィールエリアの横並びを解除して縦並びにする */
+  .about-flex-container {
+    display: flex;
+    flex-direction: column-reverse; /* 画像を上、文字を下にしたい場合はこれ。逆なら column */
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* 3. プロフィール詳細（dl）と画像の幅を100%にする */
+  .me,
+  .me-photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* プロフィールの各行（名前や生年月日）の横詰まりを解消 */
+  .me-item {
+    display: flex;
+    flex-direction: column; /* スマホでは項目名と中身を縦並びにすると見やすい */
+    margin-bottom: 10px;
+  }
+
+  /* 4. 【最重要】レーダーチャートの器をスマホ幅に縮小する */
+  .my-chart-container {
+    width: 100% !important;
+    max-width: 320px; /* スマホ画面に綺麗に収まるサイズ */
+    margin: 0 auto;   /* 中央寄せ */
+    position: relative;
+  }
+
+  /* 5. 経歴（Career）エリアの調整 */
+  .career {
+    display: block; /* もしGridやFlexを使っていたら解除 */
+    width: 100%;
+  }
+  
+  .career-content {
+    margin-bottom: 20px; /* 年号と経歴が詰まらないように余白をあける */
+  }
+
+  /* 6. スキル（Skill）リストの調整 */
+  .skill-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+  }
+
+  .skill-list li {
+    display: flex;
+    flex-direction: column; /* スキル名と説明文を縦並びにする */
+    width: 100% !important;  /* 横幅を画面いっぱいに */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 25px;
+  }
+
+  .skill-name {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .skill-item_level {
+    width: 100%;
+  }
+}
+
+
 
 
 
@@ -382,6 +481,30 @@ h2{
   background-color: #333333; 
   color: #ffffff;            
 }
+
+
+/* work スマホ */
+
+
+  @media screen and (max-width: 767px) {
+
+    .work {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* 万が一のはみ出しもカット */
+  }
+
+  .works-grid {
+    display: flex;
+    flex-direction: column; /* 画像を上、文字を下にしたい場合はこれ。逆なら column */
+    gap: 20px;
+    width: 100%;
+  }
+
+
+
+  }
 
 /*詳細ページ（work-detail） */
 
