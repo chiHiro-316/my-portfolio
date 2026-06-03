@@ -204,6 +204,9 @@ h2{
 .skill-title {
   font-weight: bold;
   margin-bottom: 24px;
+  text-align: center;
+  justify-content: center;
+  font-size: 16px;
 }
 
 
@@ -256,23 +259,23 @@ h2{
 
 @media screen and (max-width: 767px) {
 
-  /* 1. メイン全体の左右に余白を作りはみ出しを防ぐ */
+  
   .adout {
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
-    overflow: hidden; /* 万が一のはみ出しもカット */
+    overflow: hidden; 
   }
 
-  /* 2. プロフィールエリアの横並びを解除して縦並びにする */
+
   .about-flex-container {
     display: flex;
-    flex-direction: column-reverse; /* 画像を上、文字を下にしたい場合はこれ。逆なら column */
+    flex-direction: column-reverse; 
     gap: 20px;
     width: 100%;
   }
 
-  /* 3. プロフィール詳細（dl）と画像の幅を100%にする */
+
   .me,
   .me-photo {
     width: 100%;
@@ -280,32 +283,32 @@ h2{
     height: auto;
   }
 
-  /* プロフィールの各行（名前や生年月日）の横詰まりを解消 */
+
   .me-item {
     display: flex;
-    flex-direction: column; /* スマホでは項目名と中身を縦並びにすると見やすい */
+    flex-direction: column; 
     margin-bottom: 10px;
   }
 
-  /* 4. 【最重要】レーダーチャートの器をスマホ幅に縮小する */
+  
   .my-chart-container {
     width: 100% !important;
-    max-width: 320px; /* スマホ画面に綺麗に収まるサイズ */
-    margin: 0 auto;   /* 中央寄せ */
+    max-width: 320px; 
+    margin: 0 auto;   
     position: relative;
   }
 
-  /* 5. 経歴（Career）エリアの調整 */
+  
   .career {
-    display: block; /* もしGridやFlexを使っていたら解除 */
+    display: block; 
     width: 100%;
   }
   
   .career-content {
-    margin-bottom: 20px; /* 年号と経歴が詰まらないように余白をあける */
+    margin-bottom: 20px; 
   }
 
-  /* 6. スキル（Skill）リストの調整 */
+  
   .skill-list {
     padding: 0;
     margin: 0;
@@ -315,10 +318,10 @@ h2{
 
   .skill-list li {
     display: flex;
-    flex-direction: column; /* スキル名と説明文を縦並びにする */
-    width: 100% !important;  /* 横幅を画面いっぱいに */
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    flex-direction: column; 
+    width: 100% ;  
+    margin-left: 0 ;
+    margin-right: 0 ;
     margin-bottom: 25px;
   }
 
@@ -333,11 +336,6 @@ h2{
 }
 
 
-
-
-
-
-
 /* work  */
 
 .works-img {
@@ -350,8 +348,6 @@ h2{
   border-bottom: 8px solid #555; 
   margin-bottom: 32px;
 }
-
-
 
 .works-img img {
   width: 100%;
@@ -394,7 +390,6 @@ h2{
   margin-bottom: 32px; 
 
 }
-
 
 .banner-img img {
   width: 100%;
@@ -485,29 +480,26 @@ h2{
 
 /* work スマホ */
 
-
   @media screen and (max-width: 767px) {
 
     .work {
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
-    overflow: hidden; /* 万が一のはみ出しもカット */
+    overflow: hidden; 
   }
 
   .works-grid {
     display: flex;
-    flex-direction: column; /* 画像を上、文字を下にしたい場合はこれ。逆なら column */
+    flex-direction: column; 
     gap: 20px;
     width: 100%;
   }
 
 
-
   }
 
-/*詳細ページ（work-detail） */
-
+/* work1～　詳細 */
 
 .work-detail {
   width: 100%;
@@ -543,7 +535,6 @@ h2{
   margin-bottom: 40px;
 }
 
-/* 基本情報のテーブル */
 .detail-table {
   width: 100%;
   border-collapse: collapse;
@@ -561,7 +552,6 @@ h2{
   font-weight: bold;
 }
 
-/* 解説のセクション */
 .detail-section {
   margin-bottom: 40px;
 }
@@ -588,8 +578,6 @@ h2{
   margin: 0 auto;
 }
 
-
-
 .banner-hero {
   width: 100%;
   margin: 40px auto;     
@@ -612,57 +600,167 @@ h2{
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
+.shop-gallery {
+  max-width: 950px;
+  margin: 50px auto;
+  font-family: sans-serif;
+}
+
+.shot-pc, .shot-sp, .shot-sub {
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+
+.top-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 30px;
+  
+}
+
+.shot-pc {
+  flex: 3;
+}
+
+
+.shot-sp {
+  flex: 1;
+}
+
+
+.sub-block-row {
+  display: flex;
+  gap: 24px;
+}
+.shot-sub {
+  flex: 1;
+}
+
+/* バッジのスタイル */
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 4px;
+  letter-spacing: 0.5em;
+  z-index: 10;
+}
+
+/* 詳細スマホ */
+
+
+@media (max-width: 650px) {
+  .top-block {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sub-block-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.vertical-stack-block {
+  display: flex;
+  flex-direction: column; 
+  gap: 40px;              
+  margin-bottom: 40px;
+  width: 100%;
+}
+　
+.vertical-stack-block .shot-sub {
+  width: 100%;
+  max-width: none;
+  margin: 0 ; 
+}
+
+.vertical-stack-block .shot-sub img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vertical-stack-block .badge {
+  letter-spacing: 0.1em; 
+  white-space: nowrap;  
+  left: auto;
+  right: 12px;
+}
+
+
+@media (max-width: 650px) {
+  .vertical-stack-block{
+    gap: 20px;
+  }
+}
+
+
 /* contact */
 
-/* フォーム全体の枠 */
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* 各入力項目の上下の隙間 */
+
 .form-item {
   margin-bottom: 20px;
 }
 
-/* ラベル（お名前 などの文字） */
+
 .form-item label {
   display: block;
   font-weight: bold;
   margin-bottom: 8px;
 }
 
-/* 入力欄（文字を入れるボックス） */
+
 .form-item input,
 .form-item textarea {
-  width: 100%;          /* コツ1：幅は100%にしておく */
+  width: 100%;          
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-/* 送信ボタン */
+
 .submit-btn {
   display: block;
-  width: 200px;         /* ボタンはお好みの固定幅でOK */
-  margin: 30px auto 0;  /* 中央寄せ */
+  width: 200px;         
+  margin: 30px auto 0;  
   padding: 12px;
-  background-color: #091d36; /* 前のサイトの渋い紺色を参考に */
+  background-color: #091d36; 
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-/* スマホの時はボタンも横幅いっぱいにしたければメディアクエリへ */
+
 @media screen and (max-width: 767px) {
   .contact-form{
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
-    overflow: hidden; /* 万が一のはみ出しもカット */
+    overflow: hidden; 
 
   }
 
