@@ -146,7 +146,12 @@ main {
 h2{
      font-family: "Asset", serif;
      text-align: center;
-     padding-bottom: 16px;
+     /* margin: 0 0 24px; */
+     padding: 0;
+}
+
+.about{
+  padding-top: 40px;
 }
 
 .about-flex-container {
@@ -155,58 +160,88 @@ h2{
   align-items: center; 
   gap: 40px; 
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 80px;
 }
 
-.me-item {
-  margin-bottom: 20px;
+.me-profile {
+  font-size: 15px;
+  line-height: 1.8;
 }
 
-
-.me dt {
-  font-weight: bold;
-  color: #333;
+.me-profile p {
+  margin-bottom: 1.5rem;
 }
 
 
 .me-photo {
-  max-width: 300px; 
+  max-width: 350px; 
   height: auto;
 }
 
 .career {
-  display: flex;
-  flex-wrap: wrap; 
-  gap: 16px 0;    
-  width: 100%;    
-  max-width: 600px;  
-  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 80px;
+  position: relative;
 }
 
-.calender {
-  flex-basis: 25%; 
-  margin: 0;       
+.career::before {
+  content: "";
+  position: absolute;
+  left: 108px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: #e5e5e5;
+}
+
+.career-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.career-item::before {
+  content: "";
+  position: absolute;
+  left: 100px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #F7C66A;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+.career-item:last-child .career-content {
   font-weight: bold;
 }
+
+.career-item:last-child::before {
+  background: #f2a93b;
+}
+
+
+.calendar {
+  width: 22%; 
+  margin: 0;       
+  font-weight: bold;
+  position: relative;
+}
+
 
 .career-content {
-  flex-basis: 75%; 
+  width: 75%; 
   margin: 0;       
 }
 
 
-.skill {
+#skill {
   width: 100%;
-  max-width: 800px; 
+  max-width: 1000px; 
   margin: 0 auto;   
-}
-
-.skill-title {
-  font-weight: bold;
-  margin-bottom: 24px;
-  text-align: center;
-  justify-content: center;
-  font-size: 16px;
 }
 
 
@@ -251,8 +286,9 @@ h2{
 }
 
 .my-chart-container {
-    width: 500px;     
+    width: 550px;     
     margin: 0 auto;  
+    margin-bottom: 50px;
   }
 
 /* about スマホ設定 */
@@ -260,13 +296,16 @@ h2{
 @media screen and (max-width: 767px) {
 
   
-  .adout {
+  .about {
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
     overflow: hidden; 
   }
 
+  .about h2{
+    padding-top:40px;
+}
 
   .about-flex-container {
     display: flex;
@@ -276,54 +315,71 @@ h2{
   }
 
 
-  .me,
   .me-photo {
     width: 100%;
-    max-width: 100%;
+    max-width: 320px;
     height: auto;
   }
 
-
-  .me-item {
-    display: flex;
-    flex-direction: column; 
-    margin-bottom: 10px;
+   .career {
+    width: calc(100% - 40px);
+    margin: 0 auto 80px;
   }
 
+    .career-item {
+    display: block;
+    margin-bottom: 28px;
+    padding-left: 35px;
+  }
+
+  .calender{
+    width:100%;
+    margin:0 0 6px;
+  }
+  
+  .career-content{
+    width:100%;
+    padding-left:0;
+  }
+
+   .career::before {
+    left: 10px;
+  }
+
+  .career-item::before {
+    left: 2px;
+    top: 5px;
+  }
+  
   
   .my-chart-container {
     width: 100% !important;
-    max-width: 320px; 
+    max-width: 400px; 
     margin: 0 auto;   
     position: relative;
   }
 
-  
-  .career {
-    display: block; 
-    width: 100%;
+  .my-chart-container canvas {
+    width: 400px !important;
+    height: 400px !important;
+    margin: 0 auto;
   }
   
-  .career-content {
-    margin-bottom: 20px; 
-  }
 
-  
   .skill-list {
+    display: block;
+    width: calc(100% - 40px);
     padding: 0;
-    margin: 0;
-    width: 100%;
+    margin: 0 auto;
     list-style: none;
   }
 
   .skill-list li {
-    display: flex;
-    flex-direction: column; 
-    width: 100% ;  
-    margin-left: 0 ;
-    margin-right: 0 ;
-    margin-bottom: 25px;
+    display: block;
+    width: 100%;
+    margin: 0 0 25px;
   }
+
 
   .skill-name {
     margin-bottom: 5px;
@@ -349,14 +405,26 @@ h2{
   margin-bottom: 32px;
 }
 
-.works-img img {
+.screen-scroll {
   width: 100%;
   height: 100%;
-  object-fit: cover;    
-  object-position: top; 
+  overflow-y: scroll; 
+}
+
+
+.screen-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+
+.works-img img {
+  width: 100%;
+  height: auto; 
+  display: block;
   border-radius: 2px 2px 0 0; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 
 .works-img::after {
@@ -369,6 +437,7 @@ h2{
   height: 6px;  
   background: #999; 
   border-radius: 0 0 4px 4px;
+  z-index: 10;
 }
 
 .works {
@@ -661,6 +730,43 @@ img {
   z-index: 10;
 }
 
+
+.site-link {
+  display: block;          
+  width: 200px;            
+  margin: auto;       
+  padding: 12px 0;        
+  
+  text-align: center;      
+  text-decoration: none;   
+  font-weight: bold;       
+  
+  
+  color: #333333;          
+  background-color: #fff;  
+  border: 1px solid #333;
+  border-radius: 4px;      
+  transition: all 0.3s;    
+}
+
+
+.site-link:hover {
+  background-color: #333333; 
+  color: #ffffff;            
+}
+
+.site-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.5;
+  text-align: center;      
+  text-decoration: none;   
+  font-weight: bold;  
+
+}
+
+
 /* 詳細スマホ */
 
 
@@ -683,7 +789,8 @@ img {
   margin-bottom: 40px;
   width: 100%;
 }
-　
+
+
 .vertical-stack-block .shot-sub {
   width: 100%;
   max-width: none;

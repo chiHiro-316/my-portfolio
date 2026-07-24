@@ -15,70 +15,81 @@
     />
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>CHIHIRO CHIDA | Portfolio</title>
+    <title>CHIHIRO CHIDA | adout</title>
   </head>
 
-  <main class="adout">
+  <main class="about">
     <h2>About Me</h2>
 
     <div class="about-flex-container">
-      <dl class="me">
-        <div class="me-item">
-          <dt>名前</dt>
-          <dd>千田　千尋（ちだ　ちひろ）</dd>
-        </div>
+        <div class="me-profile">
+          <p>
+          はじめまして、千田 千尋 （ちだ ちひろ）です。<br>
+          職業訓練をきっかけにWebデザインを学び、現在もコーディングを中心に学習を続けています。</p>
 
-        <div class="me-item">
-          <dt>生年月日・年齢</dt>
-          <dd>1994/03/26 (32歳)</dd>
+          <p>高校生の頃、仲のいい友人グループでホームページを作っており、その編集をしていました。<br>
+          テンプレートコードにリンクを貼ったり、色を少し変更したりと簡単な作業でしたが
+          ページを自分で編集していることが楽しく、友人たちに喜んでもらえたことが今でも印象に残っています。</p>
+          
+          <p>その後は高卒で事務職で働いてきましたが、「手に職をつけたい」という思いはずっと持ち続けていました。
+          前職を退職した際、職業訓練でWebデザインを学べる機会を知り、思い切って応募しました。</p>
+          <p>学習を始めた当初は、仕様書を見ながらコードを入力しても意味がわからず苦戦しましたが、
+          コードがブラウザ上で形になった瞬間の達成感や、エラーの原因を調べながら解決していく面白さに惹かれました。
+          訓練中のグループ制作ではHTMLの構造を考えながらサイトを組み立てていくことが楽しく、
+          もっとコーディングを学びたいと思うようになりました。</p>
+        
+          <p>職業訓練は修了しましたが、現在も学習を続けながら、より良いWebサイトを制作できるコーダーを目指しています。</p>
         </div>
-
-        <div class="me-item">
-          <dt>出身地・居住地</dt>
-          <dd>秋田県秋田市</dd>
-        </div>
-
-        <div class="me-item">
-          <dt>血液型</dt>
-          <dd>A型</dd>
-        </div>
-      </dl>
 
       <img src="img/me.png" alt="" class="me-photo" />
     </div>
 
-    <br /><br /><br />
-
     <h2>Career</h2>
 
     <section class="career">
-      <p class="calender">2012年</p>
+      <div class="career-item">
+      <p class="calendar">2012年</p>
       <p class="career-content">米の卸売会社へ入社。（事務職）</p>
+      </div>
 
-      <p class="calender">2021年</p>
+      <div class="career-item">
+      <p class="calendar">2021年</p>
       <p class="career-content">
         結婚を機に退社。 <br />派遣社員として電力会社へ就業。（事務職）
       </p>
+      </div>
 
-      <p class="calender">2022年</p>
+      <div class="career-item">
+      <p class="calendar">2022年</p>
       <p class="career-content">産休育休を取得する。（1年半）</p>
+      </div>
 
-      <p class="calender">2024年</p>
+      <div class="career-item">
+      <p class="calendar">2024年</p>
       <p class="career-content">パート社員として不動産会社に入社。（事務職）</p>
+      </div>
 
-      <p class="calender">2025年</p>
+      <div class="career-item">
+      <p class="calendar">2025年</p>
       <p class="career-content">
         会社都合により退社。
         <br />職業訓練 トラパンツコンテンツスクール入校（Webデザイン科）
       </p>
+      </div>
+
+      <div class="career-item">
+      <p class="calendar">2026年</p>
+      <p class="career-content">
+        職業訓練 トラパンツコンテンツスクール卒業（Webデザイン科）
+        <br>コーダーを目指して就職活動中
+      </p>
+      </div>
     </section>
 
-    <br /><br /><br />
 
     
     <section id="skill">
       <h2>Skill</h2>
-      <p class="skill-title">現在、職業訓練校にて取得技術中</p>
 
       <div class="my-chart-container">
         <canvas id="myRadarChart"></canvas>
@@ -88,7 +99,7 @@
         <li>
           <span class="skill-name">HTML/CSS</span>
           <div class="skill-item_level">
-            <p class="skill-rate">★★★☆☆</p>
+            <p class="skill-rate">★★★★☆</p>
             <p class="skill-text">
               仕様書やデザインカンプに沿った、レスポンシブサイトのコーディングが可能です。
             </p>
@@ -148,7 +159,7 @@
         <li>
           <span class="skill-name">Figma</span>
           <div class="skill-item_level">
-            <p class="skill-rate">★★☆☆☆</p>
+            <p class="skill-rate">★★★☆☆</p>
             <p class="skill-text">
               グループ制作等にてワイヤーフレーム作成時に使用。<br />画面遷移や基本操作が可能です。
             </p>
@@ -183,7 +194,7 @@
         ],
         datasets: [
           {
-            data: [3, 3, 2, 3, 3, 2],
+            data: [4, 3, 2, 3, 3, 3],
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColor: "rgba(54, 162, 235, 1)",
           },
