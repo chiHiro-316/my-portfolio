@@ -200,11 +200,39 @@
           },
         ],
       },
+
       options: {
-        animation: { duration: 1500, easing: "easeOutQuart" },
-        plugins: { legend: { display: false } },
-        scales: { r: { min: 0, max: 5, ticks: { stepSize: 1 } } },
+  responsive: true,
+  maintainAspectRatio: true,
+
+  animation: {
+    duration: 1500,
+    easing: "easeOutQuart"
+  },
+
+  plugins: {
+    legend: {
+      display: false
+    }
+  },
+
+  scales: {
+    r: {
+      min: 0,
+      max: 5,
+
+      ticks: {
+        stepSize: 1
       },
+
+      pointLabels: {
+        font: {
+          size: 10
+        }
+      }
+    }
+  }
+},
     });
   }
 
